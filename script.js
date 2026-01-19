@@ -11,28 +11,42 @@ ctx.globalCompositeOperation = "destination-out";
 
 let scratching = false;
 
-canvas.addEventListener("mousedown", () => scratching = true);
-canvas.addEventListener("mouseup", () => scratching = false);
-canvas.addEventListener("mousemove", scratch);
-
-canvas.addEventListener("touchstart", () => scratching = true);
-canvas.addEventListener("touchend", () => scratching = false);
 canvas.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  if (!scratching) return;
+
   const rect = canvas.getBoundingClientRect();
-  scratch({
-    clientX: e.touches[0].clientX - rect.left,
-    clientY: e.touches[0].clientY - rect.top
+  const touch = e.touches[0];
+
+  ctx.beginPath();
+  ctx.arc(
+    touch.clientX - rect.left,
+    touch.clientY - rect.top,
+    20,
+    0,
+    Math.PI * 2
+  );
+  ctx.fill();
+
+  checkReveal();
+}, { passive: false });
+
   });
 });
 
 function scratch(e) {
   if (!scratching) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
   ctx.beginPath();
-  ctx.arc(e.clientX, e.clientY, 15, 0, Math.PI * 2);
+  ctx.arc(x, y, 20, 0, Math.PI * 2);
   ctx.fill();
+
   checkReveal();
 }
-
 function checkReveal() {
   const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
   let cleared = 0;
