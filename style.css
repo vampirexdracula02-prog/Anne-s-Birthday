@@ -1,0 +1,39 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Anne 🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="instructions">
+  <h2>Hey Anne 👀</h2>
+  <p>Scratch the note below with your finger 👇</p>
+</div>
+
+<canvas id="scratchCanvas"></canvas>
+
+<div id="message" class="hidden">
+  <h1>haha you thought i was gonna wish you NO 😌</h1>
+</div>
+
+<div id="blowSection" class="hidden">
+  <p>Now blow into your microphone to blow out the candle 🎤💨</p>
+  <div id="candle">🕯️</div>
+</div>
+
+<div id="letter" class="hidden">
+  <div class="envelope">✉️</div>
+  <div class="letter-content">
+    <h2>Dear Anne 💖</h2>
+    <p>
+      WRITE YOUR LETTER HERE
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
