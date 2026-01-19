@@ -1,0 +1,54 @@
+style.css
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #0f172a;
+  color: white;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#scratchCanvas {
+  margin: 20px auto;
+  display: block;
+  background: #999;
+  border-radius: 10px;
+}
+
+#message {
+  font-size: 24px;
+  animation: fadeOut 3s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+#candle {
+  font-size: 80px;
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.envelope {
+  font-size: 60px;
+}
+
+.letter-content {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
